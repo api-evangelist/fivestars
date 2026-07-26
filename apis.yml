@@ -1,8 +1,30 @@
 aid: fivestars
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/fivestars.png
 name: Fivestars
-description: Fivestars is a company surfaced as a portfolio company of lightspeed-venture-partners, menlo-ventures,
-  y-combinator and added to the API Evangelist network as a stub for enrichment. This profile is a lead
-  awaiting the enrichment pipeline.
+description: >-
+  Fivestars was a customer loyalty, rewards, and payments platform for small and
+  mid-sized brick-and-mortar merchants, founded in 2010 and headquartered in San
+  Francisco. It combined an automated marketing engine, a customer loyalty and
+  rewards program, and integrated card payments so local businesses could turn
+  one-time shoppers into repeat customers. Fivestars was backed by Lightspeed
+  Venture Partners, Menlo Ventures, and Y Combinator, and historically operated a
+  developer program exposing loyalty, promotions, and customer APIs. The company
+  was acquired by SumUp in 2021 and its product has since been folded into SumUp
+  Connect (SumUp Loyalty); the fivestars.com domain now redirects to SumUp's
+  loyalty program and the standalone Fivestars developer portal and public APIs
+  have been retired. This profile is retained in the API Evangelist network as a
+  historical company record.
 url: https://raw.githubusercontent.com/api-evangelist/fivestars/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,11 +34,21 @@ x-backed-by:
 - y-combinator
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-status: acquired
+x-acquired-by: sumup
+x-successor-product: SumUp Connect (SumUp Loyalty)
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
+- Loyalty
+- Rewards
+- Payments
+- Point of Sale
+- Customer Engagement
+- Marketing
+- Small Business
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -24,5 +56,12 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/fivestars-domain-security.yml
 - type: Website
   url: https://fivestars.com
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
