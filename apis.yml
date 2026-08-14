@@ -18,13 +18,16 @@ description: >-
   Francisco. It combined an automated marketing engine, a customer loyalty and
   rewards program, and integrated card payments so local businesses could turn
   one-time shoppers into repeat customers. Fivestars was backed by Lightspeed
-  Venture Partners, Menlo Ventures, and Y Combinator, and historically operated a
-  developer program exposing loyalty, promotions, and customer APIs. The company
-  was acquired by SumUp in 2021 and its product has since been folded into SumUp
-  Connect (SumUp Loyalty); the fivestars.com domain now redirects to SumUp's
-  loyalty program and the standalone Fivestars developer portal and public APIs
-  have been retired. This profile is retained in the API Evangelist network as a
-  historical company record.
+  Venture Partners, Menlo Ventures, and Y Combinator. The company was acquired by
+  SumUp in 2021 and its product has since been folded into SumUp Connect (SumUp
+  Loyalty); fivestars.com now redirects to SumUp's loyalty program. Fivestars
+  publishes no public API, no developer portal and no machine-readable contract —
+  api.fivestars.com resolves but returns 404 on every spec and well-known path,
+  and developers.fivestars.com does not resolve. Fivestars-branded surfaces that
+  remain live include the marketing site, merchant dashboard, help center and a
+  public status page, plus one first-party iOS library (TapiSDK) for legacy cPay
+  terminal integrators. This profile is retained in the API Evangelist network as
+  a historical company record.
 url: https://raw.githubusercontent.com/api-evangelist/fivestars/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -39,7 +42,7 @@ x-acquired-by: sumup
 x-successor-product: SumUp Connect (SumUp Loyalty)
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-19'
+modified: '2026-08-13'
 tags:
 - Company
 - Loyalty
@@ -60,8 +63,51 @@ common:
   url: security/fivestars-domain-security.yml
 - type: Website
   url: https://fivestars.com
+- type: Packages
+  url: packages/fivestars-packages.yml
+- type: SDKs
+  url: packages/fivestars-packages.yml
+- type: Lifecycle
+  url: lifecycle/fivestars-lifecycle.yml
+- type: StatusPage
+  url: https://status.fivestars.com
+- type: LLMsTxt
+  url: llms/fivestars-llms.txt
+- type: Plans
+  url: plans/fivestars-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/fivestars-rate-limits.yml
+- type: Support
+  url: https://help.fivestars.com
+- type: GitHubOrganization
+  url: https://github.com/fivestars
+- type: Login
+  url: https://dashboard.fivestars.com
+- type: TermsOfService
+  url: https://fsweb.fivestars.com/legal/
+- type: PrivacyPolicy
+  url: https://fsweb.fivestars.com/privacy/
 x-enrichment:
-  date: '2026-07-19'
-  status: backfilled
+  date: '2026-08-13'
+  status: minimal
+  artifacts_added: 6
   pass: local-v1
-  note: backfilled from .gitignore signal + verified work evidence
+x-coverage:
+  state: none
+  reason: defunct
+  detail: >-
+    Fivestars was fully absorbed into SumUp — fivestars.com 301s to
+    sumup.com/en-us/loyalty-program/, api.fivestars.com resolves through SumUp's
+    edge but 404s on every spec and .well-known path, developers.fivestars.com
+    and docs.fivestars.com do not resolve, and the Wayback Machine holds no
+    capture of a Fivestars developer portal at any point.
+  evidence:
+  - url: https://fivestars.com/
+    status: 301
+  - url: https://api.fivestars.com/openapi.json
+    status: 404
+  - url: https://www.fivestars.com/developers
+    status: 404
+  - url: https://status.fivestars.com/api/v2/summary.json
+    status: 200
+  checked: '2026-08-13'
