@@ -1,0 +1,152 @@
+generated: '2026-08-13'
+method: probed
+source: >-
+  Live unauthenticated GET of the RFC 8615 /.well-known/ paths against every
+  Fivestars-controlled host reachable in DNS. No spec host exists — apis[] is
+  empty and Fivestars publishes no OpenAPI — so the probe set is the four live
+  fivestars.com hosts plus the retired API host.
+note: >-
+  Every path missed. api.fivestars.com, www.fivestars.com, fsweb.fivestars.com
+  and help.fivestars.com return 404 on all five paths. dashboard.fivestars.com
+  returns HTTP 200 on every path, but the body is the same ~8.7KB single-page-app
+  HTML shell for all of them (including / itself), which is the SPA catch-all
+  false positive, NOT a served document — recorded as a miss. No WellKnown or
+  SecurityTxt pointer is emitted in apis.yml, because nothing was served.
+hosts_probed:
+  - api.fivestars.com
+  - www.fivestars.com
+  - fsweb.fivestars.com
+  - help.fivestars.com
+  - dashboard.fivestars.com
+probes:
+  - host: api.fivestars.com
+    path: /.well-known/security.txt
+    status: 404
+    file: null
+  - host: api.fivestars.com
+    path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - host: api.fivestars.com
+    path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - host: api.fivestars.com
+    path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - host: api.fivestars.com
+    path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - host: www.fivestars.com
+    path: /.well-known/security.txt
+    status: 404
+    file: null
+  - host: www.fivestars.com
+    path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - host: www.fivestars.com
+    path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - host: www.fivestars.com
+    path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - host: www.fivestars.com
+    path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - host: fsweb.fivestars.com
+    path: /.well-known/security.txt
+    status: 404
+    file: null
+  - host: fsweb.fivestars.com
+    path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - host: fsweb.fivestars.com
+    path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - host: fsweb.fivestars.com
+    path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - host: fsweb.fivestars.com
+    path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - host: help.fivestars.com
+    path: /.well-known/security.txt
+    status: 404
+    file: null
+  - host: help.fivestars.com
+    path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - host: help.fivestars.com
+    path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - host: help.fivestars.com
+    path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - host: help.fivestars.com
+    path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - host: dashboard.fivestars.com
+    path: /.well-known/security.txt
+    status: 200
+    file: null
+    verdict: spa-shell
+    note: 8829-byte SPA HTML, identical shell to /. Not a document.
+  - host: dashboard.fivestars.com
+    path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    verdict: spa-shell
+    note: 8861-byte SPA HTML. Not a document.
+  - host: dashboard.fivestars.com
+    path: /.well-known/oauth-authorization-server
+    status: 200
+    file: null
+    verdict: spa-shell
+    note: 8885-byte SPA HTML. Not a document.
+  - host: dashboard.fivestars.com
+    path: /.well-known/api-catalog
+    status: 200
+    file: null
+    verdict: spa-shell
+    note: 8825-byte SPA HTML. Not a document.
+  - host: dashboard.fivestars.com
+    path: /.well-known/ai-plugin.json
+    status: 200
+    file: null
+    verdict: spa-shell
+    note: 8837-byte SPA HTML. Not a document.
+agent_card_probe:
+  note: >-
+    /.well-known/agent-card.json and the pre-0.3 /.well-known/agent.json were
+    probed on all five hosts as part of STEP 0b. 404 everywhere except
+    dashboard.fivestars.com, which answered 200 with the same SPA shell — the
+    dominant false positive. No agent card exists, so no a2a/ artifact and no
+    AgentCard pointer were written.
+  results:
+    - url: https://api.fivestars.com/.well-known/agent-card.json
+      status: 404
+    - url: https://api.fivestars.com/.well-known/agent.json
+      status: 404
+    - url: https://www.fivestars.com/.well-known/agent-card.json
+      status: 404
+    - url: https://fsweb.fivestars.com/.well-known/agent-card.json
+      status: 404
+    - url: https://help.fivestars.com/.well-known/agent-card.json
+      status: 404
+    - url: https://dashboard.fivestars.com/.well-known/agent-card.json
+      status: 200
+      verdict: spa-shell

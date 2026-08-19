@@ -1,0 +1,19 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://fsweb.fivestars.com/pricing (HTTP 404),
+  https://fsweb.fivestars.com/ (HTTP 200 — marketing site, no pricing tier
+  table), https://fsweb.fivestars.com/sumup-connect/ (HTTP 200),
+  https://fivestars.com/ (HTTP 301 -> https://www.sumup.com/en-us/loyalty-program/).
+plan_count: 0
+plans: []
+note: >-
+  Fivestars publishes no plans, tiers or pricing table on any Fivestars-controlled
+  host. fsweb.fivestars.com/pricing returns 404 and the marketing site routes
+  buyers to a demo/contact motion. Post-acquisition pricing for the successor
+  product is published by SumUp on sumup.com, which is a different company's
+  surface and is deliberately NOT recorded here — attributing SumUp's price list
+  to Fivestars would credit this profile with something Fivestars does not
+  publish. There is also no API to price: no public developer program exists
+  (see lifecycle/fivestars-lifecycle.yml), so there are no API plans, quotas or
+  overage terms of any kind.

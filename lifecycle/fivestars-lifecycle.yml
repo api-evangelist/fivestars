@@ -1,0 +1,88 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://status.fivestars.com (live Statuspage.io instance, HTTP 200, with
+  /api/v2/summary.json, /api/v2/status.json and history.rss all HTTP 200),
+  https://fsweb.fivestars.com/legal/ (Terms of Service, effective 2023-01-01),
+  https://fivestars.com/ (HTTP 301 -> https://www.sumup.com/en-us/loyalty-program/),
+  https://api.fivestars.com/ (HTTP 404 on every path probed).
+note: >-
+  Fivestars was acquired by SumUp in 2021 and the product is now marketed as
+  SumUp Connect / SumUp Loyalty. This artifact records the lifecycle of the
+  FIVESTARS surface only. There is no published API versioning policy, no
+  deprecation policy, and no RFC 8594 Sunset/Deprecation header contract to
+  record — no public API contract exists to version. What Fivestars does still
+  operate is a real, publicly reachable status page and a Fivestars-branded
+  legal surface, both of which are captured here.
+company_lifecycle:
+  status: acquired
+  acquired_by: SumUp
+  acquired: '2021'
+  successor_product: SumUp Connect (SumUp Loyalty)
+  brand_state: >-
+    The Fivestars brand still operates under SumUp. fivestars.com 301s to
+    sumup.com/en-us/loyalty-program/, but fsweb.fivestars.com (marketing),
+    help.fivestars.com (support), dashboard.fivestars.com (merchant dashboard,
+    rmd.fivestars.com 308s to it) and status.fivestars.com are all live and
+    Fivestars-branded ("Fivestars by SumUp").
+api_lifecycle:
+  public_api: false
+  developer_portal: false
+  evidence: >-
+    developers.fivestars.com and docs.fivestars.com do not resolve in DNS.
+    api.fivestars.com resolves (via fivestars-edge.fleet.live.us-east-1.sumup.net)
+    but returns HTTP 404 on /openapi.json, /openapi.yaml, /swagger.json,
+    /v1/openapi.json, /api-docs, /docs, /redoc and every /.well-known/ path.
+    www.fivestars.com/developers, /developer, /api and /api-docs all return 404.
+    The Wayback Machine holds no capture of developers.fivestars.com or of
+    fivestars.com/developers at any point; the only archived /api paths are
+    internal /admin/api/* merchant-admin pages that 301'd.
+  remaining_client_surface: >-
+    One first-party client library survives: TapiSDK for iOS (see
+    packages/fivestars-packages.yml), a Terminal API wrapper described in its own
+    README as being "for legacy Fivestars integrators including loyalty with
+    cPay". Last release 0.0.6 on 2024-05-16. It is distributed to integrators
+    from the company's GitHub org, not through a public developer program.
+versioning:
+  scheme: null
+  mechanism: null
+  docs: null
+  notes: No public API, therefore no published versioning policy.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  changelog: null
+  notes: >-
+    No deprecation policy is published. The developer surface was retired without
+    a public sunset notice that can be found on any Fivestars-controlled host or
+    in the Wayback record. No Deprecation pointer is emitted in apis.yml.
+sla:
+  url: https://fsweb.fivestars.com/legal/
+  public_uptime_target: null
+  notes: >-
+    The Fivestars Terms of Service (effective 2023-01-01, served from
+    fsweb.fivestars.com/legal/) governs use of the loyalty platform across the
+    website, mobile app and point-of-sale terminals. It publishes no numeric
+    uptime commitment.
+status_page: https://status.fivestars.com
+status_page_detail:
+  platform: Atlassian Statuspage
+  page_id: mbfc23q2129s
+  http_status: 200
+  machine_readable:
+    - url: https://status.fivestars.com/api/v2/summary.json
+      status: 200
+    - url: https://status.fivestars.com/api/v2/status.json
+      status: 200
+    - url: https://status.fivestars.com/history.rss
+      status: 200
+  components_observed:
+    - Twilio SMS
+    - Twilio SMS Short Code, North America
+    - Twilio Super SIM
+  note: >-
+    The page tracks only the Twilio messaging dependencies that carry Fivestars
+    merchant SMS campaigns — it does not surface loyalty, payments or dashboard
+    components.
+deprecated_products: []
+deprecated_operations: []

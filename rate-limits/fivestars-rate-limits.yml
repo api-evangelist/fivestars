@@ -1,0 +1,18 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  Searched every Fivestars-controlled host for a documented limit surface:
+  https://api.fivestars.com/docs (404), https://www.fivestars.com/developers
+  (404), https://help.fivestars.com (200, support help center — no API section),
+  https://fsweb.fivestars.com/ (200, marketing only). No developer documentation
+  exists on any of them.
+limit_count: 0
+limits: []
+headers: []
+exhaustion_status: null
+note: >-
+  No rate limits are documented because no public API is documented. Fivestars
+  retired its developer surface; api.fivestars.com resolves but 404s on every
+  probed path, and there is no reference page on which limits could be published.
+  This is an honest zero, not an unchecked field — recording it so the absence is
+  countable rather than silent.

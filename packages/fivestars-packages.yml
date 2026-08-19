@@ -1,0 +1,90 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://github.com/fivestars (the company's own GitHub organization, created
+  2011-05-02), plus registry metadata from registry.npmjs.org. PyPI, RubyGems,
+  crates.io, NuGet, Maven Central and pkg.go.dev were searched for "fivestars"
+  and returned nothing first-party.
+note: >-
+  Fivestars publishes no public REST API and no general-purpose API client SDK.
+  The one genuine first-party API client library is TapiSDK for iOS — a wrapper
+  around the Terminal API used by legacy Fivestars cPay integrators — distributed
+  from the company's own GitHub org via Swift Package Manager and CocoaPods, with
+  no central registry entry (Swift Package Manager and this CocoaPods podspec are
+  git-source, so there is no metadata endpoint to query; the version is read from
+  the git tag and the podspec). The two npm packages are first-party but are
+  linter style configs, not API clients — they are recorded here for completeness
+  and marked api_client:false so they are not mistaken for SDK coverage. All
+  three are stale: the newest release is 2024-05-16.
+package_count: 3
+official_count: 3
+api_client_count: 1
+packages:
+  - name: TapiSDK
+    language: swift
+    registry: git
+    api_client: true
+    official: true
+    repository: https://github.com/fivestars/tapi-sdk-ios-distribution
+    install:
+      swift_package_manager: '.package(url: "https://github.com/fivestars/tapi-sdk-ios-distribution", exact: "0.0.6")'
+      cocoapods: "pod 'TapiSDK', :git => 'https://github.com/fivestars/tapi-sdk-ios-distribution', :tag => '0.0.6'"
+    version: 0.0.6
+    published: '2024-05-16'
+    version_source: >-
+      GitHub release tag 0.0.6 (published 2024-05-16) and TapiSDK.podspec
+      s.version = '0.0.6'; no registry metadata endpoint exists for a git-sourced
+      Swift/CocoaPods distribution.
+    description: >-
+      iOS wrapper around the Terminal API for payment processing for legacy
+      Fivestars integrators, including loyalty with cPay.
+    ownership_evidence: >-
+      TapiSDK.podspec declares s.author = 'Fivestars by SumUp' and
+      s.homepage = 'http://fivestars.com', and the repository sits in the
+      company's own github.com/fivestars organization — first-party to Fivestars,
+      not to SumUp's separately-profiled developer platform.
+    platform: iOS 13.0+, Swift 5.3
+    license: MIT
+    dependencies:
+      - AnyCodableKit
+      - VGSCollectSDK 1.16.1
+    status: stale
+  - name: tslint-config-fivestars
+    language: javascript
+    registry: npm
+    api_client: false
+    official: true
+    url: https://www.npmjs.com/package/tslint-config-fivestars
+    repository: https://github.com/fivestars/tslint-config-fivestars
+    version: 0.5.1
+    published: '2019-06-21'
+    version_source: https://registry.npmjs.org/tslint-config-fivestars
+    description: Fivestars TypeScript style guide (TSLint config). Not an API client.
+    status: abandoned
+  - name: eslint-config-fivestars
+    language: javascript
+    registry: npm
+    api_client: false
+    official: true
+    url: https://www.npmjs.com/package/eslint-config-fivestars
+    repository: https://github.com/fivestars/javascript
+    version: 1.2.4
+    published: '2018-07-26'
+    version_source: https://registry.npmjs.org/eslint-config-fivestars
+    description: Fivestars JavaScript style guide (ESLint config). Not an API client.
+    status: abandoned
+registries_searched:
+  - registry: npm
+    result: 2 first-party packages (both linter configs)
+  - registry: pypi
+    result: none (pypi.org/pypi/fivestars/json -> 404)
+  - registry: rubygems
+    result: none (empty search result)
+  - registry: maven-central
+    result: none
+  - registry: nuget
+    result: none
+  - registry: crates.io
+    result: none
+  - registry: pkg.go.dev
+    result: none
