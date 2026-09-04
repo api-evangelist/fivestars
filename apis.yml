@@ -21,6 +21,8 @@ accessModel:
   source: []
   generated: '2026-07-22'
   method: derived
+  source:
+  - {url: 'https://fivestars.com', status: 301, note: 'declared website redirects to https://www.sumup.com/en-us/loyalty-program/ — a different registrable domain (fivestars.com -> sumup.com), possible rename or acquisition (probed 2026-09-03, roadmap#169)'}
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/fivestars.png
 name: Fivestars
 description: >-
