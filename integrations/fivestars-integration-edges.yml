@@ -1,0 +1,27 @@
+generated: '2026-10-14'
+method: searched
+checked:
+- clover/integrations/clover-integration-edges.yml
+source:
+- clover/integrations/clover-integration-edges.yml
+edges:
+- partner_name: Clover (own)
+  partner: clover
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.clover.com/appmarket/apps/DDFWQ4H4JZXNE
+  mirror_of: clover/integrations/clover-integration-edges.yml
+  apps:
+  - Fivestars Pay (Data Link)
+  - Fivestars Loyalty (Integration)
+  listing_count: 2
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: BOOK_STORE
+  badges:
+  - Editor's Pick
